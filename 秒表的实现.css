@@ -1,0 +1,38 @@
+
+
+.mb{
+	height: 300px;width: 210px;border: 2px solid #000000FF;
+}
+.id_size{ 
+	 float: left;height: 120px; width: 210px; padding-top: 55px;
+    padding-left: 65px;
+}
+.Btnn{
+	height: 180px;
+	width: 210px;
+	padding-left: 40px;
+	padding-top: 150px;
+	float: left;
+
+}
+.saBtn{
+	float: left;
+    margin-top: -175px;
+    margin-left: 23px;
+    height: 37px;
+    width: 70px;
+}
+.pBtn{
+	float: left;
+    margin-top: -125px;
+    margin-left: 23px;
+    height: 37px;
+    width: 70px;
+}
+.sBtn{
+	float: left;
+    margin-top: -73px;
+    margin-left: 23px;
+    height: 37px;
+    width: 70px;
+}
