@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>innerHTML</title>
+	<script type="text/javascript">
+		/*innerhtml   获取标签间的内容
+
+		如果在innerhtml 包含标签，标签会被识别，并且会解析，呈现对应的效果*/
+		window.onload = function(){
+			var obtn = document.getElementById("btn");
+			var odiv = document.getElementById("one");
+			obtn.onclick = function(){
+				odiv.innerHTML = "<h1>我是替换文本</h1>";
+			}
+		}
+	</script>
+</head>
+<body>
+<div id="one">
+	<em>斜体</em>
+</div>
+<input type="button" id="btn" value="点击按钮">
+</body>
+</html>

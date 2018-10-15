@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<script type="text/javascript">
+	/*setInterval(函数，毫秒数)*/
+	/*setInterval(function(){我们想执行的代码},毫秒数)*/
+
+/*
+	clearInterval(参数) 取消定时器
+	参数 ：定时器的ID*/
+	var i = 0;
+	var show = function (){
+		document.write(i++ + "<br />");
+	}
+	window.onload = function(){
+		var obtn = document.getElementById("btn");
+		obtn.onclick = function(){
+		var timer =	setInterval(function (){
+		document.write(i++ + "<br />");
+		if (i == 5) {
+			clearInterval(timer);
+		}
+	}, 1000);
+		}
+
+		
+	} 
+</script>
+<body>
+<input type="button" id="btn" value = "点击" width="200px">
+</body>
+</html>
