@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>open函数</title>
+	<script type="text/javascript">
+		/*window.open()
+		open()
+
+		1.要加载URL
+		2.窗口的名称或者窗口的目标
+		3.一串具有特殊意义的字符串*/
+		window.onload = function(){
+			var obtn = document.getElementById("btn");
+			obtn.onclick = function(){
+				open("子窗口.html","子窗口","height = 400,width = 400");
+				//只有一个参数时，用open会加载url
+
+				// 第二个参数是给打开的新窗口起一个名字，以后在加载url就在这个已经起好名字的目标窗口加载url
+
+				// 第三个参数是设置打开窗口的参数
+			}
+		}
+	</script>
+</head>
+<body>
+	<input type="button" value="按钮" id="btn" name="">
+</body>
+</html>

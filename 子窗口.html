@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>子窗口</title>
+	<script type="text/javascript">
+		//  opener ----打开当前窗口的父窗口的windows对象
+		window.onload = function(){
+			var obtn = document.getElementById("zc");
+			obtn.onclick = function(){
+				opener.alert("子窗口调用");
+			}
+		}
+	</script>
+</head>
+<body>
+<input type="button" name="" id="zc" value="获取父窗口">
+</body>
+</html>
