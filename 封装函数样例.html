@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>封装函数</title>
+	<script type="text/javascript">
+		function &(vArg){
+			// 对参数进行区分
+			switch(vArg[0]){
+				case "#"//id
+					return document.getElementById(vArg.substring(1));
+					break;
+				case "."//classname
+					return elementByClassName(document,vArg.substring(1));
+				    break;
+				default:
+					// 对name和tagname进行判断
+					var str = vArg.substring(0,5);
+					if (str == "name=") {
+						return document.getElementsByName(vArg.substring(5));
+					}else{
+						return document.getElementsByTagName(vArg);
+					}
+					break;
+			}
+		}
+		// 封装了一个函数来解决getElementByClassName在IE下不兼容问题
+		function elementByClassName(parent,classStr){
+			// 找到parent下所有的元素节点
+			var nodes = parent.getElementsByTagName("*")
+			var result = [];//用记录符合条件的元素节点
+			for(var i = 0;i < nodes.length;i++){
+				if (nodes[i].className == classStr) {
+					result.push(nodes[i]);
+				}
+			}
+			return result;
+		}
+		// 获取当前样式的兼容函数
+		function getStyle(elem,attr){
+			return elem.currentStyle ? elem.currentStyle[attr] : getComputedStyle
+		}
+	</script>
+</head>
+<body>
+
+</body>
+</html>
