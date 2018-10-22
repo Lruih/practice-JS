@@ -30,7 +30,7 @@
 		*/
 		function createElementtxt(tagName,txt){
 			var node = document.createElement(tagName);
-			var otxt = document.createElement(txt);
+			var otxt = document.createTextNode(txt);
 			node.appendChild(otxt);
 			return node;
 		}

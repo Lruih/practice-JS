@@ -39,6 +39,21 @@
 		function getStyle(elem,attr){
 			return elem.currentStyle ? elem.currentStyle[attr] : getComputedStyle
 		}
+
+
+
+		//插入到某节点之后
+		function insertAfter(newNode,oldNode){
+			//判断oldNode是否是最后一个节点
+			var parent = oldNode.parentNode;
+			if (oldNode == parent.lastChild){
+				//证明是最后一个节点,直接进入到子节点的末尾
+				parent.appendChild(newNode);
+			}else{
+				//插入到oldNode的下一个节点之前
+				parent.insertBefore(newNode,oldNode.nextSibling);
+			}
+		}
 	</script>
 </head>
 <body>
