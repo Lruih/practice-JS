@@ -54,6 +54,25 @@
 				parent.insertBefore(newNode,oldNode.nextSibling);
 			}
 		}
+
+
+
+		//添加函数的兼容性
+		function addEvent(obj,type,fun){
+			if (obj.addEventListener){
+				obj.addEventListener(type,fun,false);
+			}else{
+				obj.attachEvent("on" + type,fun);
+			}
+		}
+		//删除函数的兼容性
+		function removeEvent(obj,type,fun){
+			if (obj.removeEventListener){
+				obj.removeEventListener(type,fun,false);
+			}else{
+				obj.detachEvent("on" + type,fun);
+			}
+		}
 	</script>
 </head>
 <body>
