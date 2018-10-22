@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>insertbefore</title>
+	<script src="创建节点.html" type="text/javascript" charset="utf-8" async defer></script>
+	<script type="text/javascript">
+	//创建一个<strong>将这个节点插入到span中 
+		window.onload = function(){
+		var node = createElementtxt("strong","文本");
+		var ospan = document.getElementsByTagName("span")[0];
+		/*ospan.parentNode.insertBefore(node,ospan);*/
+		insertAfter(node,ospan);
+		}
+
+
+		//插入到某节点之后
+		function insertAfter(newNode,oldNode){
+			//判断oldNode是否是最后一个节点
+			var parent = oldNode.parentNode;
+			if (oldNode == parent.lastChild){
+				//证明是最后一个节点,直接进入到子节点的末尾
+				parent.appendChild(newNode);
+			}else{
+				//插入到oldNode的下一个节点之前
+				parent.insertBefore(newNode,oldNode.nextSibling);
+			}
+		}
+	
+	</script>
+</head>
+<body>
+	<div id = "div1">
+		<p>p</p>
+		<span>span</span>
+		<em>em</em>
+	</div>
+		
+	</div>
+</body>
+</html>
