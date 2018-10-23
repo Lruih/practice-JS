@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>事件委托</title>
+	<style type="text/css" media="screen">
+		ul li{
+			background-color: #03DDFBFF;
+			width: auto;
+			height: 20px;
+			margin: 5px;
+		}
+	</style>
+	<script type="text/javascript">
+	window.onclick = function(){
+		var ou1 = document.getElementsByTagName("ul")[0];
+		var ali = document.getElementsByTagName("li");
+
+
+		//事件委托
+		ou1.onclick = function(e){
+			var evt = e||event;
+			var  _target = evt.target||evt.srcElement;
+			if(_target.nodeName.toLowerCase() == "li"){
+				console.log(_target.innerHTML);
+			}
+		}
+		for (var i = 0;i < 5;i++){
+			var oli = document.createElement("li");
+			oli.innerHTML = i;
+			ou1.appendChild(oli);
+		}
+
+	}
+</script>
+</head>
+
+<body>
+	<ul>
+		<li>1</li>
+		<li>2</li>
+		<li>3</li>
+		<li>4</li>
+		<li>5</li>
+	</ul>
+</body>
+</html>

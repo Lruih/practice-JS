@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>阻止冒泡函数</title>
+	<style type="text/css" media="screen">
+		#outer{
+			height: 300px;
+			width: 300px;
+			background-color: #0DC8F1FF;
+		}
+		#inner{
+			height: 100px;
+			width: 100px;
+			background-color: #33ED11FF;
+		}
+	</style>
+	<script type="text/javascript">
+		window.onload = function(){
+			var outer = document.getElementById("outer");
+			var inner = document.getElementById("inner");
+			outer.onclick = function(){
+				
+				console.log("out");
+				
+			}
+			inner.onclick = function(e){
+				var evt = e || event;
+				console.log("in");
+				//阻止冒泡
+				evt.cancelBubble = true;
+			}
+		}
+	</script>
+</head>
+<body>
+	<div id="outer">
+		<div id="inner">	
+		</div>
+	</div>
+</body>
+</html>
