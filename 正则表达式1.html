@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>正则表达式1</title>
+	<script type="text/javascript">
+		//1.字面量方式
+		var reg = /abc/;
+		//2.构造函数
+		var reg = new RegExp("abc");
+
+		//test 方法 正则表达式的方法，用来检测字符串是否含有符合规则的字串，有，返回true，无，返回false
+
+		var str = "ab";
+		var flag = reg.test(str);//检查str中是否有reg 没有返回false
+		console.log(flag);
+		//修饰符 g i
+
+		// g 表示全局匹配
+		var reg = /abc/g;//查找有几个abc
+		var str = "abcabc";
+
+		//match方法  字符串方法
+		console.log(str.match(reg));
+		
+		//i  忽略大小写
+
+		//seach   用于查找符合规则的子串的位置，只返回第一个匹配的信息
+
+		//exec方法,正则表达式的方法，将匹配成功的内容放到数组里，如果没有匹配成功，则返回full
+
+
+		// .除了换行符之外的所有单个字符都能用它代替
+		var reg = /g..gle/gi;
+		var str = "googleg--gle";
+		console.log(reg.test(str));
+		console.log(str.match(reg));//显示两个元素google和g--gle
+		// *重复多次匹配，匹配任意次
+		var reg = /g*gle/gi;
+		var str = "gggle";
+		console.log(reg.test(str),str.match(reg));//能够输出gggle
+		
+		//+至少有一次重复匹配
+
+
+		//？进行0或1次匹配
+
+		//[]表示可以出现的范围[0-9]
+
+		//\w 数字字母下划线等同于[0-9a-zA-z]
+		//\W 非数字字母下划线
+		// \d 表示数字[0-9] \D 非数字
+		//\s 匹配空格  得到的没有空格
+		//{m,n} 至少匹配m次，至多匹配n次
+		var reg = /go{3，7}gle/gi;
+		var str = "google";//输出false
+		console.log(reg.test(str),str.match(reg));
+		// ^ 匹配开始   $匹配结尾
+		var reg = /^g.+g$/gi;
+		var str = "gooogle";//输出false
+		console.log(reg.test(str),str.match(reg));
+
+		//  | 或
+		//()分组将内容作为一个整体进行匹配
+		var reg = /(goole){4,6}/gi;//goole进行4-6次匹配
+		var str = "gooogle";
+		console.log(reg.test(str),str.match(reg));
+
+		//$1  $2
+		var reg = /(.*)\s(.*))/gi;
+		var str = "taobao baidu";
+		console.log(str.replace(reg,"$2 $1"));//输出baidu taobao
+	</script>
+</head>
+<body>
+
+</body>
+</html>
