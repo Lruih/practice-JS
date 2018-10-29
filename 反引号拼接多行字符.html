@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>``拼接多行字符</title>
+	<script type="text/javascript">
+		/*let obj = {"name":"liju","age":"20"};
+		let{name,age} = obj;
+		console.log(`${name}的年龄是${age}`);*/
+		window.onload = function(){ 
+			var arr = [0,1,2,3,4];
+			let oul = document.getElementById("text");
+			var html = "";
+			for(var i in arr){
+				html += `<li>${arr[i]}</li>`;
+			}
+			oul.innerHTML = html;
+		} //插入了li标签并显示0，1，2，3，4;
+	</script>
+</head>
+<body>
+	<ul id="text">
+		
+	</ul>
+</body>
+</html>
