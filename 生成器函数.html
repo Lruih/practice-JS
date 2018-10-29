@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>生成器函数</title>
+	<script type="text/javascript">
+		function* feibo(n){
+			let a = 0;
+			b = 1;
+			for(let i = 0;i < n;i++){
+				yield a;
+				let temp = a+b;
+				a = b;
+				b = temp;
+			}
+		}
+		var f = feibo(10);
+		for( let i of f){
+			console.log(i);
+		}
+	</script>
+</head>
+<body>
+
+</body>
+</html>
