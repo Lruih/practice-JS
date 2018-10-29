@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>this的指向</title>
+	<script type="text/javascript">
+		var name = "windows";
+		/*var obj = {
+			"name":"john",
+			//console.log(this) ----sayhello的console原理上是在这里
+			"sayhello":()=>{
+				console.log(this.name);
+			}
+		};
+		obj.sayhello();//this指向windows   显示windows*/
+		var obj = {
+			"name":"john",
+			"sayhello":function(){
+				setTimeout(()=>{console.log(this.name)},1000);
+			}
+		}//this指向john
+		
+		obj.sayhello();
+	</script>
+</head>
+<body>
+
+</body>
+</html>
