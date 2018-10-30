@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>两个div碰撞</title>
+	<script type="text/javascript">
+		window.onload = function(){
+			var speedx = 5;
+			var speedy =3;
+			var div1 = document.querySelector('.div1');
+			var div2 = document.querySelector('.div2');
+			div1.speedx = 5;
+			div1.speedy = 3;
+			div2.speedx = 5;
+			div2.speedy = 3;
+			function move(el){
+				var mleft = parseInt(window.getComputedStyle(el).left);//getComputedStyle只能获取CSS样式，不能修改
+				var mtop = parseInt(window.getComputedStyle(el).top);
+				checkb(el);
+				var tempx,tempy;
+				if(center(div1,div2)){
+					tempx = div1.speedx;
+					tempy = div1.speedy;
+
+					div1.speedx = div2.speedx  ;
+					div1.speedy = div2.speedy ;
+					
+					div2.speedx = tempx ;
+					div2.speedy = tempy;
+
+				}
+				var left = mleft + el.speedx;
+				var top = mtop + el.speedy;
+				if (mleft) {}
+				el.style.left = left + "px";//只能修改style中的css
+				el.style.top = top + "px";
+				}
+			function checkb(el){
+				var style = window.getComputedStyle(el);
+				var left = parseInt(style.left);
+				var top = parseInt(style.top);
+				var h = parseInt(style.height);
+				var w = parseInt(style.width);
+				if (left < 0) {
+					left = 0;
+					el.speedx *= -1;
+				}
+				if (left > window.innerWidth - w) {
+					left = window.innerWidth - w;
+					el.speedx *= -1;
+				}
+				if (top < 0) {
+					top = 0;
+					el.speedy *= -1;
+				}
+				if (top > window.innerHeight - h) {
+					top = window.innerHeight - h;
+					el.speedy *= -1;
+				}
+				el.style.left = left + "px";
+				el.style.top = top + "px";
+			}
+			function center(b1,b2){
+				var left1 = parseInt(window.getComputedStyle(b1).left);
+				var left2 = parseInt(window.getComputedStyle(b2).left);
+				var top1 = parseInt(window.getComputedStyle(b1).top);
+				var top2 = parseInt(window.getComputedStyle(b2).top);
+
+				var wt1 = parseInt(window.getComputedStyle(b1).width);
+				var wt2 = parseInt(window.getComputedStyle(b2).width);
+
+				var ht1 = parseInt(window.getComputedStyle(b1).height);
+				var ht2 = parseInt(window.getComputedStyle(b2).height);
+
+				var center1 = {
+					x: left1 + wt1/2,
+					y: top1 + ht1/2
+				}
+				var center2 = {
+					x:left2 + wt2/2,
+					y:top2 + ht2/2
+				}
+				var diffx = Math.abs(center1.x - center2.x);
+				var diffy = Math.abs(center1.y - center2.y);
+				if (diffx < (wt1 + wt2)/2&&diffy < (ht1+ht2)/2) {
+					return true;
+				}
+				return false;
+			}
+			setInterval(function (){move(div1)
+				move(div2)},10);
+			}
+		
+	</script>
+	<style type="text/css" media="screen">
+		body{
+			overflow: hidden;
+		}
+		.div1{
+			height: 100px;
+			width: 100px;
+			background-color: #11E4EDFF;
+			position: absolute;
+			left:0;
+			top: 0;
+			float: left;
+			margin:0px;
+		}
+		.div2{
+			height: 100px;
+			width: 100px;
+			background-color: #000000FF;
+			position: absolute;
+			left:500px;
+			top: 500px;
+			margin:0px;
+		}
+	</style>
+</head>
+<body>
+	<div class="div1">
+	</div >
+	<div class = "div2">
+		
+	</div>
+</body>
+</html>
