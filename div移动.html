@@ -10,19 +10,48 @@
 			
 			
 			function move(){
-				
 				var mleft = parseInt(window.getComputedStyle(div).left);//getComputedStyle只能获取CSS样式，不能修改
 				var mtop = parseInt(window.getComputedStyle(div).top);
+				checkb(div);
 				var left = mleft + speedx;
 				var top = mtop + speedy;
+				if (mleft) {}
 				div.style.left = left + "px";//只能修改style中的css
 				div.style.top = top + "px";
 				}
-			setInterval(function (){move()},20);
+			function checkb(el){
+				var style = window.getComputedStyle(el);
+				var left = parseInt(style.left);
+				var top = parseInt(style.top);
+				var h = parseInt(style.height);
+				var w = parseInt(style.width);
+				if (left < 0) {
+					left = 0;
+					speedx *= -1;
+				}
+				if (left > window.innerWidth - w) {
+					left = window.innerWidth - w;
+					speedx *= -1;
+				}
+				if (top < 0) {
+					top = 0;
+					speedy *= -1;
+				}
+				if (top > window.innerHeight - h) {
+					top = window.innerHeight - h;
+					speedy *= -1;
+				}
+				el.style.left = left + "px";
+				el.style.top = top + "px";
+			}
+			setInterval(function (){move()},10);
 			}
 		
 	</script>
 	<style type="text/css" media="screen">
+		body{
+			overflow: hidden;
+		}
 		.div{
 			height: 200px;
 			width: 200px;
@@ -31,8 +60,9 @@
 			left:0;
 			top: 0;
 			float: left;
-			margin:36px;
+			margin:0px;
 		}
+
 	</style>
 </head>
 <body>
