@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>div移动</title>
+	<script type="text/javascript">
+		window.onload = function(){
+			var div = document.querySelector('div');//获取css
+			var speedx = 3;
+			var speedy =3;
+			
+			
+			function move(){
+				
+				var mleft = parseInt(window.getComputedStyle(div).left);//getComputedStyle只能获取CSS样式，不能修改
+				var mtop = parseInt(window.getComputedStyle(div).top);
+				var left = mleft + speedx;
+				var top = mtop + speedy;
+				div.style.left = left + "px";//只能修改style中的css
+				div.style.top = top + "px";
+				}
+			setInterval(function (){move()},20);
+			}
+		
+	</script>
+	<style type="text/css" media="screen">
+		.div{
+			height: 200px;
+			width: 200px;
+			background-color: #11E4EDFF;
+			position: absolute;
+			left:0;
+			top: 0;
+			float: left;
+			margin:36px;
+		}
+	</style>
+</head>
+<body>
+	<div class="div">
+	</div>
+	
+</body>
+</html>
