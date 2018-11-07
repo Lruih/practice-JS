@@ -1,0 +1,56 @@
+*{
+	margin: 0;
+	padding: 0;
+}
+.slider{
+	position: relative;
+	height: 400px;
+	width: 700px;
+	
+}
+ul{
+	list-style: none;
+}
+.list{
+	position: absolute;
+	float: left;
+
+}
+.item{
+	height: 400px;
+	width: 700px;
+	float: left;
+}
+.item img{
+	height: 400px;
+	width: 700px;
+	display: block;
+}
+.prev{
+	position: absolute;
+	top: 300px;
+	left: 0px;
+}
+
+.next{
+	position: absolute;
+	top: 250px;
+	right: 0px;
+}
+.bullet{
+	width: 20px;
+	height: 20px;
+	background-color: black;
+	margin-left: 5px;
+	left: 250px;
+	top: 340px;
+	position: relative;
+	z-index: 999;
+	float: left;
+	cursor: pointer;
+	border-radius: 100%;
+}
+.focus{
+	background-color: yellow;
+
+}
