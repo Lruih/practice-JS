@@ -6,7 +6,7 @@
 	position: relative;
 	height: 400px;
 	width: 700px;
-	
+	overflow: hidden;
 }
 ul{
 	list-style: none;
