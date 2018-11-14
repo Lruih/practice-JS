@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>构造函数和继承</title>
+</head>
+<script type="text/javascript">
+	//创建一个Person类
+	function Person(name,age){
+		this.name = name;
+		this.age = age;
+		this.sayhello = function(){
+			alert(this.name);
+		}
+	}
+	var p = new Person();
+	//apply--参数是数组传递 ，call--参数是每一个传递
+	function Student(name,age,id){
+		Person.apply(this,[name,age])//如果直接调用Person类  this的指向传不过来，所以用apply,[]中是一个数组
+		/*Person.call(thi,name,age)*/
+		this.id = id;
+		this.study = function(){
+			alert(this.id + 'is learning');
+		}
+
+	}
+</script>
+<body>
+
+</body>
+</html>
