@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>jsonp</title>
+	<script type="text/javascript">
+		window.onload = function(){
+			function getData(data){
+				var script = document.querySelector("#jsonp");
+				script.parentNode.removeChild(script);
+				document.querySelector('ul').html('');
+				for(var i = 0;i < data.s.length;i++){
+					document.querySelector('<li>' + data.s[i] + '</li>').appendTo('ul');
+				}
+			}
+			function getlist(wd){
+				var script = document.createElement('script');
+				script.id = 'jsonp';
+				scripr.src = 'https://sp0.baidu.com/5a1Fazu8AA54nxGko9WTAnF6hhy/su?cb=getData&wd=' + wd;
+				document.body.appendChid(script);
+			}
+
+			document.querySelector('input').keyup = function(){
+				var wd = document.querySelector(this).val();
+				getlist(wd);
+			}
+		}
+	</script>
+</head>
+<body>
+	<input type="text">
+	<ul >
+	</ul>
+</body>
+</html>
