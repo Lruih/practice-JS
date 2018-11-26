@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>JQ节点遍历</title>
+	<script src="../jQuery/jquery-3.3.1.min.js"></script>
+</head>
+<body>
+	<div id="container">
+		<ul class="list">
+			<li class="item">
+				<p>1</p>
+			</li>
+			<li class="item">
+				<p>2</p>
+			</li>
+			<li class="item">
+				<p class="vip">3</p>
+			</li>
+			<li class="item">
+				<p>4</p>
+			</li>
+			<li class="item">
+				<p>5</p>
+			</li>
+		</ul>
+	</div>
+	<script>
+		var li2 = $("li:eq(1)");//获取第二个li标签赋给li2
+		li2.children().css('background','red');//改变第二个li的子元素背景
+		li2.parent().css('color','yellow');//父节点的颜色变为黄色
+		li2.parents('div#container').append('<h2>新元素</h2>');//父节点div下添加新节点
+
+		$('#container').find('p.vip').css({
+			background:'black',
+			color:'blue'
+		});//find能找到所有节点
+
+		li2.next().css({fontSize: '25px'});//获取下一个节点
+		li2.prev().css({fontSize: '30px'});//获取上一个节点
+
+		li2.siblings().css('fontWeight','bold');//遍历该元素的同级元素
+	</script>
+</body>
+</html>
