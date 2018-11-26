@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>jquery动画</title>
+	<script src="../jQuery/jquery-3.3.1.min.js"></script>
+	<style type="text/css" media="screen">
+		.div1{
+			height:200px;
+			width: 200px;
+			background-color: black;
+		}
+	</style>
+</head>
+<body>
+	<div class="div1">
+	</div>
+	<button>显示</button>
+	<button>隐藏</button>
+	<button>暂停</button>
+<script>
+	$('button:first').click(function(){
+		// $('div').show(2000);//长和宽慢慢显示出来
+		// $('div').fadeIn(3000);//透明度逐渐为0出现
+		// $('div').slideDown(3000);//下来出现
+		$('div').animate({
+			width:500
+		},5000).animate({
+			height:600
+		},5000)//animate 是长和宽拉伸显示;这个方法是使用异步，先拉伸宽 在拉伸长
+	})
+	$('button:eq(1)').click(function(){
+		// $('div').hide(2000);//长和宽慢慢隐藏下去
+		// $('div').fadeOut(3000);//透明度逐渐为0消失
+		// $('div').slideUp(3000);//上拉消失
+		$('div').animate({
+			width:200
+		},5000).animate({
+			height:200
+		},5000)
+	})
+	$('button:last').click(function(){
+		$('div').stop(true);
+	})
+</script>
+</body>
+</html>
