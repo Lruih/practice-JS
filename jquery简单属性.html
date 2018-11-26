@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>jquery简单属性</title>
+	<script src='../jQuery/jquery-3.3.1.js'></script>
+	<style type="text/css" media="screen">
+				
+		.blue{
+			width: 60px;
+			height: 60px;
+			background: #094FF5FF;
+		}
+		.red{
+			width: 60px;
+			height: 60px;
+			background: #F10D27FF;
+		}
+	</style>
+</head>
+<body>
+
+<div class="red" id="start">
+</div>
+
+<input type="button" class="start">
+
+
+<script>
+		/*$('input').keyup(function(){
+			var a = $(this).val();
+			$(this).val(a + 'px');
+		});*/
+		/*$('div').click(function(){
+			$(this).toggleClass('blue');
+			$(this).toggleClass('red');
+		})*/
+		var r = document.getElementById('start');
+		r.onclick = function(){
+			if(r.className == 'red'){
+			r.className = 'blue';
+		}else{
+			r.className = 'red';
+		}
+		};
+
+</script>
+</body>
+</html>
