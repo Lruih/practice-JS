@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>ES6 set</title>
+</head>
+<body>
+	<script type="text/javascript">
+		var set = new Set([1,2,2,3,4,2])//默认删除重复的值
+		//扩展运算符...
+		var arr = [...set];//把set中的元素分离扩展为数组
+		for( let i of set)//遍历set
+		console.log(set.has(6))//测验set中是否含有6，有的话返回true，否则返回false
+		set.add(1);//因为set中不能含有重复数值，所以添加失败
+		set.delete(1);//删除1;
+		set.clear();//清楚set中的所有数据;
+		console.log(set,set.size);//size相当于length,用来表示set的长度
+	</script>
+</body>
+</html>
