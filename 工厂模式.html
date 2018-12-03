@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>工厂模式</title>
+	
+</head>
+<body>
+	<script src="加强兵.js" type="text/javascript" charset="utf-8" async defer></script>
+	<script src="工厂模式.js" type="text/javascript" charset="utf-8" async defer></script>
+	<script src="普通兵.js" type="text/javascript" charset="utf-8" async defer></script>
+	<script src="炮车.js" type="text/javascript" charset="utf-8" async defer></script>
+	<script>
+		var s = Factory.create('normal');
+
+		for(var i=0;i<10;i++){
+			Factory.create('guncarrier');
+		}
+	</script>	
+</body>
+</html>
